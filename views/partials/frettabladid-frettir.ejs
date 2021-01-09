@@ -1,0 +1,6 @@
+<% for (var key in data) { %>
+    <div class="article">
+        <h1 class="article__h1"><%= data[key].title %></h1>
+        <img class="article__img" src="<%= data[key].imageUrl %>" alt="news img">
+    </div>
+<% } %>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/articles.css" />
+
+		<title>Home</title>
+	</head>
+	<body>
+		<%- include('../partials/nav'); %>
+
+		<main class="wrapper">
+            <%- include('../partials/mini-nav'); %>
+            
+            <button onclick="toggle('.local')">Innlent</button>
+			<button onclick="toggle('.global')">Erlent</button>
+
+			<% for( var key in data ) { %>
+				<%= data[key].Fimleikar.title %> 
+			<% } %> 
+
+			<div class="articles">
+				<% for (var key in data) { %> <% if (data[key].tag === 'INNLENT') { %>
+				<div class="article local">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				
+				<% } else if (data[key].tag === 'ERLENT') { %>
+				<div class="article global">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } %>
+
+				<div class="article other">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } %>
+			</div>
+        </main>
+        
+        <script src="js/index.js"></script>
+	</body>
+</html>

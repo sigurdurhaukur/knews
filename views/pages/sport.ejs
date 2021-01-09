@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/articles.css" />
+
+		<title>Home</title>
+	</head>
+	<body>
+		<%- include('../partials/nav'); %>
+
+		<main class="wrapper">
+			<%- include('../partials/mini-nav'); %>
+
+			<button onclick="toggle('.football')">Fótbolti</button>
+			<button onclick="toggle('.english-football')">Enski boltinn</button>
+			<button onclick="toggle('.icelandic-football')">Íslenski boltinn</button>
+			<button onclick="toggle('.handball')">Handbolti</button>
+			<button onclick="toggle('.basketball')">Körfubolti</button>
+			<button onclick="toggle('.golf')">Golf</button>
+			<button onclick="toggle('.athletics')">Frjálsar íþróttir</button>
+			<button onclick="toggle('.swimming')">Sund</button>
+			<button onclick="toggle('.gymnastics')">Fimleikar</button>
+			<button onclick="toggle('.other')">Annað</button>
+
+			<div class="articles">
+				<% for (var key in data) { %> <% if (data[key].tag === 'FÓTBOLTI') { %>
+				<div class="article football">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'ENSKI BOLTINN') { %>
+				<div class="article english-football">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'ÍLENSKI BOLTINN') { %>
+				<div class="article icelandic-football">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'HANDBOLTI') { %>
+				<div class="article handball">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'KÖRFUBOLTI') { %>
+				<div class="article basketball">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'GOLF') { %>
+				<div class="article golf">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'FRJÁLSAR ÍÞRÓTTIR') { %>
+				<div class="article athletics">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'SUND') { %>
+				<div class="article swimming">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } else if (data[key].tag === 'FIMLEIKAR') { %>
+				<div class="article gymnastics">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<p class="article__p"><%= data[key].tag %></p>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } %>
+
+				<div class="article other">
+					<h1 class="article__h1"><%= data[key].title %></h1>
+					<img
+						class="article__img"
+						src="<%= data[key].imageUrl %>"
+						alt="news img"
+					/>
+				</div>
+				<% } %>
+			</div>
+		</main>
+        <script src="js/index.js"></script>
+	</body>
+</html>

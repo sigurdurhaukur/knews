@@ -11,6 +11,8 @@
 		<title>Home</title>
 	</head>
 	<body>
+		<%- include('../partials/header'); -%>
+
 		<%- include('../partials/nav'); %>
 
 		<main class="wrapper">
@@ -19,9 +21,7 @@
             <button onclick="toggle('.local')">Innlent</button>
 			<button onclick="toggle('.global')">Erlent</button>
 
-			<% for( var key in data ) { %>
-				<%= data[key].Fimleikar.title %> 
-			<% } %> 
+			<!-- <%= data.Innlent %>  -->
 
 			<div class="articles">
 				<% for (var key in data) { %> <% if (data[key].tag === 'INNLENT') { %>
@@ -59,6 +59,6 @@
 			</div>
         </main>
         
-        <script src="js/index.js"></script>
+        <script src="/public/js/index.js"></script>
 	</body>
 </html>

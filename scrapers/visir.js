@@ -3,7 +3,7 @@ const scraperObject = {
 	async scraper(browser, category) {
 		let page = await browser.newPage();
 
-		await page.goto(this.url);
+		await page.goto(this.url, { waitUntil: 'networkidle2' });
 
 		let selectedCategory = await page.$$eval(
 			'.main-menu > ul > li > a',
@@ -29,19 +29,21 @@ const scraperObject = {
 			return articles.map((article) => {
 				const properties = {};
 				const titleElement = article.querySelector(
-					'.article-item__content > .article-item__title > a'
+					'.article-item__title > a'
+					//'.article-item__content > .article-item__title > a'
 				);
-				const tag = article.querySelector(
-					'.article-item__content .article-item__meta a.badge--tag'
-				).innerText;
-				const anchorElement = article.querySelector('.figure a');
-				const imageElement = article.querySelector('.figure a img');
+				// const tag = article.querySelector(
+				// 	'.article-item__content .article-item__meta a.badge--tag'
+				// ).innerText;
+				// const anchorElement = article.querySelector('.figure a');
+				// const imageElement = article.querySelector('.figure a img');
 
-				properties.title = titleElement.innerText;
-				properties.tag = tag;
-				properties.url = anchorElement.getAttribute('href');
-				properties.imageUrl = imageElement ? imageElement.src : '';
+				properties.title = titleElement.textContent;
+				// properties.tag = tag;
+				// properties.url = anchorElement.getAttribute('href');
+				// properties.imageUrl = imageElement ? imageElement.src : '';
 
+				console.log(properties);
 				return properties;
 			});
 		});

@@ -14,7 +14,7 @@ async function scrapeAll(browserInstance) {
 		let scrapedData = {};
 		// Call the scraper for different set of articles to be scraped
 
-		// scrapedData['Fimleikar'] = await fb.scraper(browser, 'Fimleikar');
+		// scrapedData['Innlent'] = await fb.scraper(browser, 'Innlent');
 		// scrapedData['Innlent'] = await mbl.scraper(browser, 'Innlent');
 		// scrapedData['Erlent'] = await mbl.scraper(browser, 'Erlent');
 		// scrapedData['Fréttir'] = await man.scraper(browser, 'Fréttir');
@@ -23,9 +23,9 @@ async function scrapeAll(browserInstance) {
 		// scrapedData['Raddir'] = await man.scraper(browser, 'Raddir');
 		// scrapedData['Fólk'] = await vb.scraper(browser, 'Fólk');
 
-		// scrapedData['Fréttir'] = await visir.scraper(browser, 'Fréttir');
+		scrapedData['Fréttir'] = await visir.scraper(browser, 'Fréttir');
 		// scrapedData = await fotbolti.scraper(browser);
-		scrapedData['Fréttir'] = await dv.scraper(browser, 'FRÉTTIR');
+		// scrapedData['Fréttir'] = await dv.scraper(browser, 'FRÉTTIR');
 
 		await browser.close();
 		fs.writeFile(

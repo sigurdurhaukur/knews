@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/menu.css" />
+
+		<!-- font awesome -->
+		<script src="https://use.fontawesome.com/735d08bd89.js"></script>
+
+		<title>menu</title>
+	</head>
+<body>
+    <%- include('../partials/header'); -%> 
+
+    <div class="wrapper">
+
+        <h1>menu</h1>
+    
+        <button onclick="alert('hi')">toggle fb</button>
+        <form action="" method="post">
+            check
+        </form>
+    </div>
+    <script>
+        const button = document.querySelector('button')
+        function alert(msg) {
+            try {
+
+                console.log(msg)
+            } catch (err) {
+                console.log(err)
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -42,6 +42,8 @@ const scraperObject = {
 				// properties.tag = tag;
 				// properties.url = anchorElement.getAttribute('href');
 				// properties.imageUrl = imageElement ? imageElement.src : '';
+				properties.icon =
+					'https://www.visir.is/static/1.0.538/img/favicon/favicon-32x32.png';
 
 				console.log(properties);
 				return properties;

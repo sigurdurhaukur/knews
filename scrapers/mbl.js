@@ -32,12 +32,13 @@ const scraperObject = {
 				const titleElement = article.querySelector('.text-truncate-3');
 				const tag = article.querySelector('.text-truncate').innerText;
 				const anchorElement = article.querySelector('div > a');
-				const imageElement = article.querySelector('img');
+				const imageElement = article.querySelector('a > img');
 
 				properties.title = titleElement.innerText;
 				properties.tag = tag;
 				properties.url = anchorElement.getAttribute('href');
-				properties.imageUrl = imageElement ? imageElement.src : '';
+				properties.imageUrl = imageElement.src ? imageElement.src : '';
+				properties.icon = 'https://www.mbl.is/favicon.ico';
 
 				return properties;
 			});

@@ -3,16 +3,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
+const dotenv = require('dotenv');
+dotenv.config();
 
-const _data = require('./api/data.json');
-const data = JSON.stringify(_data);
+const data = require('./api/data.json');
+// const data = JSON.parse(_data);
 const authRoutes = require('./routes/authRoutes');
 // const dataFrettir = require('./api/frettabladid-frettir.json');
 // const dataLifid = require('./api/frettabladid-lifid.json');
 // const dataSport = require('./api/frettabladid-sport.json');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 
@@ -21,8 +23,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(cookieParser());
 
-const dbURI =
-	'mongodb+srv://admin:admin1234@cluster0.frtfl.mongodb.net/knews?retryWrites=true&w=majority';
+const dbURI = process.env.API_URI;
 mongoose
 	.connect(dbURI, {
 		useNewUrlParser: true,
@@ -49,6 +50,24 @@ app.get('/', (req, res) => {
 	});
 });
 
+app.get('/menu', (req, res) => {
+	res.render('pages/menu', {
+		style: 'home',
+		title: 'hihihi',
+		data: data,
+	});
+});
+
+app.get('/articles/:news', (req, res) => {
+	const news = req.params;
+	console.log(news);
+	res.render('pages/index', {
+		style: 'home',
+		title: 'hihihi',
+		data: data,
+		news: news,
+	});
+});
 app.get('/sport', (req, res) => {
 	res.render('pages/sport', {
 		// data: dataSport,

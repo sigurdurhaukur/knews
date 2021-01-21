@@ -15,6 +15,14 @@ const userSchema = new mongoose.Schema({
 		required: [true, 'Please enter a password'],
 		minlength: [8, 'Minimim password lenght is 6 characters'],
 	},
+	settings: {
+		fb: { type: Boolean },
+		mbl: { type: Boolean },
+		man: { type: Boolean },
+		vb: { type: Boolean },
+		visir: { type: Boolean },
+		dv: { type: Boolean },
+	},
 });
 
 // fire a function before a doc saved to db

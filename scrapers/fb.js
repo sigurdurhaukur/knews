@@ -39,6 +39,8 @@ const scraperObject = {
 				properties.tag = tag;
 				properties.url = anchorElement.getAttribute('href');
 				properties.imageUrl = imageElement ? imageElement.src : '';
+				properties.icon =
+					'//frettabladid.overcastcdn.com/img/favicon-32x32.9cd52e1aea4a.png';
 
 				return properties;
 			});

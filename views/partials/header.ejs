@@ -4,7 +4,8 @@
 	</a>
 	<ul>
 		<% if (user) { %>
-		<li><a href="#">Daginn, <%= user.email %></a></li>
+		<li><a href="/menu">Menu</a></li>
+		<li ><a href="#" class="email">Daginn, <%= user.email %></a></li>
 		<li><a href="/logout">Útskráning</a></li>
 		<% } else { %>
 		<li><a href="/menu">Menu</a></li>

@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/nav.css" />
 		<link rel="stylesheet" href="css/menu.css" />
@@ -11,30 +11,52 @@
 		<script src="https://use.fontawesome.com/735d08bd89.js"></script>
 
 		<title>menu</title>
+
+		<style>
+			.fb, .mbl {
+				padding: 1em;
+				cursor: pointer;
+				margin: 2em;
+			}
+		</style>
 	</head>
-<body>
-    <%- include('../partials/header'); -%> 
+	<body>
+		<%- include('../partials/header'); -%>
 
-    <div class="wrapper">
+		<div class="wrapper">
+			<h1>menu</h1>
 
-        <h1>menu</h1>
-    
-        <button onclick="alert('hi')">toggle fb</button>
-        <form action="" method="post">
-            check
-        </form>
-    </div>
-    <script>
-        const button = document.querySelector('button')
-        function alert(msg) {
-            try {
+			<button>toggle fb</button>
+			<div class="fb">Frettabladid</div>
+			<div class="mbl">morgunbladid</div>
+		</div>
+		<script>
+			const email = document.querySelector('a.email').innerText;
+			const fb = document.querySelector('.fb');
+			const mbl = document.querySelector('.mbl');
 
-                console.log(msg)
-            } catch (err) {
-                console.log(err)
-            }
-            
-        }
-    </script>
-</body>
+			fb.addEventListener('click', post('/settings/fb'));
+			mbl.addEventListener('click', post('/settings/mbl'));
+
+			function post(route) {
+				const data = { email: email};
+				console.log('button was clicked');
+
+				fetch(route, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						// console.log('Success:', data);
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+					});
+			}
+		</script>
+	</body>
 </html>

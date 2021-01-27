@@ -25,12 +25,14 @@
 				<form action="/action_page.php">
 					<label for="search">
 						<input
+							id="search"
 							type="text"
 							placeholder="LEITAÐU EFTIR “VIÐSKIPTAFRÉTTIR”"
 							name="search"
 						/>
 					</label>
 					<button type="submit">Leita</button>
+					<div id="countryList"></div>
 				</form>
 			</div>
 			<div class="triangle-pos">
@@ -45,21 +47,59 @@
 			<%- include('../partials/mini-nav'); %>
 
 			<div class="articles">
-				<% Object.keys(data.Innlent.fb).forEach(function(key) { %>
-				<article class="article news">
-					<img
-						class="article__img"
-						src="<%= data.Innlent.fb[key].imageUrl %>"
-						alt="news img"
-					/>
-					<img src="<%= data.Innlent.fb[key].icon %> " alt="" />
-					<p class="article__p"><%= data.Innlent.fb[key].tag %></p>
-					<h1 class="article__h1"><%= data.Innlent.fb[key].title %></h1>
-					<div class="bottom">
-						<i class="far fa-eye"></i>
-					</div>
-				</article>
-				<% }) %>
+				<% if (user) { %>
+					<% if (user.settings.fb) { %>
+						<% Object.keys(data.Innlent.fb).forEach(function(key) { %>
+							<article class="article news">
+								<img
+									class="article__img"
+									src="<%= data.Innlent.fb[key].imageUrl %>"
+									alt="news img"
+								/>
+								<img src="<%= data.Innlent.fb[key].icon %> " alt="" class="article__icon"/>
+								<p class="article__p"><%= data.Innlent.fb[key].tag %></p>
+								<h1 class="article__h1"><%= data.Innlent.fb[key].title %></h1>
+								<div class="bottom">
+									<i class="far fa-eye"></i>
+								</div>
+							</article>
+						<% }) %>
+					<% } %>	
+					<% if (user.settings.mbl) { %>
+						<% Object.keys(data.Innlent.mbl).forEach(function(key) { %>
+							<article class="article news">
+								<img
+									class="article__img"
+									src="<%= data.Innlent.mbl[key].imageUrl %>"
+									alt="news img"
+								/>
+								<img src="<%= data.Innlent.mbl[key].icon %> " alt="" class="article__icon"/>
+								<p class="article__p"><%= data.Innlent.mbl[key].tag %></p>
+								<h1 class="article__h1"><%= data.Innlent.mbl[key].title %></h1>
+								<div class="bottom">
+									<i class="far fa-eye"></i>
+								</div>
+							</article>
+							<% }) %>
+					<% } %>				 
+				<% } else { %>
+					<% Object.keys(data.Innlent.fb).forEach(function(key) { %>
+					<article class="article news">
+						<img
+							class="article__img"
+							src="<%= data.Innlent.fb[key].imageUrl %>"
+							alt="news img"
+						/>
+						<img src="<%= data.Innlent.fb[key].icon %> " alt="" class="article__icon"/>
+						<p class="article__p"><%= data.Innlent.fb[key].tag %></p>
+						<h1 class="article__h1"><%= data.Innlent.fb[key].title %></h1>
+						<div class="bottom">
+							<!-- <i class="far fa-eye"></i> -->
+							<p class="time"><%= data.Innlent.fb[key].date%>, <%= data.Innlent.fb[key].hour %>:<%= data.Innlent.fb[key].minute %>  </p>
+						</div>
+					</article>
+					<% }) %>
+				<% } %>
 			</div>
 
 			<div class="articles">
@@ -98,6 +138,6 @@
 			</div>
 		</main>
 
-		<script src="/public/js/index.js"></script>
+		<script src="js/index.js"></script>
 	</body>
 </html>

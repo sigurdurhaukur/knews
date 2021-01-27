@@ -56,10 +56,10 @@ header .triangle-parent {
 
 header .triangle {
 	position: absolute;
-	bottom: 144px;
-	right: 18px;
+	bottom: 140px;
+	right: 60px;
 	/* width: 1300px; */
-	width: 91vw;
+	width: 87.5vw;
 	/* height: 315px; */
 	height: 46vw;
 	background-color: white;

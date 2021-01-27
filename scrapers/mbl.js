@@ -40,6 +40,11 @@ const scraperObject = {
 				properties.imageUrl = imageElement.src ? imageElement.src : '';
 				properties.icon = 'https://www.mbl.is/favicon.ico';
 
+				let date = new Date();
+				properties.date = date.getDate();
+				properties.hour = date.getHours();
+				properties.minute = date.getMinutes();
+
 				return properties;
 			});
 		});

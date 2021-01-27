@@ -41,6 +41,10 @@ const scraperObject = {
 				properties.imageUrl = imageElement ? imageElement.src : '';
 				properties.icon =
 					'//frettabladid.overcastcdn.com/img/favicon-32x32.9cd52e1aea4a.png';
+				const date = new Date();
+				properties.date = date.getDate();
+				properties.hour = date.getHours();
+				properties.minute = date.getMinutes();
 
 				return properties;
 			});

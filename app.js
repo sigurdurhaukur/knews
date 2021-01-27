@@ -9,6 +9,7 @@ dotenv.config();
 const data = require('./api/data.json');
 // const data = JSON.parse(_data);
 const authRoutes = require('./routes/authRoutes');
+const settingsRoutes = require('./routes/settingsRoutes');
 // const dataFrettir = require('./api/frettabladid-frettir.json');
 // const dataLifid = require('./api/frettabladid-lifid.json');
 // const dataSport = require('./api/frettabladid-sport.json');
@@ -50,14 +51,6 @@ app.get('/', (req, res) => {
 	});
 });
 
-app.get('/menu', (req, res) => {
-	res.render('pages/menu', {
-		style: 'home',
-		title: 'hihihi',
-		data: data,
-	});
-});
-
 app.get('/articles/:news', (req, res) => {
 	const news = req.params;
 	console.log(news);
@@ -74,10 +67,9 @@ app.get('/sport', (req, res) => {
 	});
 });
 
+// authentication is needed for these routes
 app.get('/smoothies', requireAuth, (req, res) => res.send('smoothies'));
-
-// app.listen(port, () => {
-// 	console.log(`Example app listening at http://localhost:${port}`);
-// });
+app.get('/menu', requireAuth);
 
 app.use(authRoutes);
+app.use(settingsRoutes);

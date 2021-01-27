@@ -16,12 +16,12 @@ const userSchema = new mongoose.Schema({
 		minlength: [8, 'Minimim password lenght is 6 characters'],
 	},
 	settings: {
-		fb: { type: Boolean },
-		mbl: { type: Boolean },
-		man: { type: Boolean },
-		vb: { type: Boolean },
-		visir: { type: Boolean },
-		dv: { type: Boolean },
+		fb: { type: Boolean, default: true },
+		mbl: { type: Boolean, default: true },
+		man: { type: Boolean, default: false },
+		vb: { type: Boolean, default: false },
+		visir: { type: Boolean, default: false },
+		dv: { type: Boolean, default: false },
 	},
 });
 

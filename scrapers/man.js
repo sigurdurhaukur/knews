@@ -42,6 +42,11 @@ const scraperObject = {
 				// properties.url = anchorElement.getAttribute('href');
 				// properties.imageUrl = imageElement ? imageElement.src : '';
 
+				const date = new Date();
+				properties.date = date.getDate();
+				properties.hour = date.getHours();
+				properties.minute = date.getMinutes();
+
 				return properties;
 			});
 		});

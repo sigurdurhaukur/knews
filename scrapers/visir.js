@@ -45,6 +45,11 @@ const scraperObject = {
 				properties.icon =
 					'https://www.visir.is/static/1.0.538/img/favicon/favicon-32x32.png';
 
+				const date = new Date();
+				properties.date = date.getDate();
+				properties.hour = date.getHours();
+				properties.minute = date.getMinutes();
+
 				console.log(properties);
 				return properties;
 			});

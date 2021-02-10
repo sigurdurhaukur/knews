@@ -2,6 +2,7 @@ header {
 	/* background-color: white; */
 	width: 80rem;
 	margin-left: 90px;
+
 }
 
 header h1 {
@@ -145,3 +146,17 @@ header .search-container button:hover {
 .articles {
 	margin-top: 3rem;
 }
+
+@media only screen and (max-width: 600px) {
+	header {
+		display: none;
+	}
+
+	.wrapper {
+		margin-top: 0;
+	}
+
+	.mini-nav {
+		display: none;
+	}
+  }

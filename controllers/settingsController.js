@@ -15,21 +15,14 @@ module.exports.settings_mbl = (req, res) => {
 	const email = _email.replace('Daginn, ', '');
 	console.log(email);
 
-	User.updateOne({ email: email }, [
-		{
-			$set: {
-				'settings.mbl': {
-					$switch: {
-						branches: [
-							{ case: { $eq: ['$settings.mbl', true] }, then: false },
-							{ case: { $eq: ['$settings.mbl', false] }, then: true },
-						],
-						default: true,
-					},
-				},
-			},
-		},
-	])
+	User.updateOne(
+		{ email: email },
+		[{ $set: { 'settings.mbl': { $eq: [false, '$settings.mbl'] } } }]
+		// .then((dbModel) => {
+		// 	res.json(dbModel);
+		// })
+		// .catch((err) => res.status(422).json(err))
+	)
 		.then((dbModel) => {
 			res.json(dbModel);
 		})
@@ -42,21 +35,14 @@ module.exports.settings_fb = (req, res) => {
 	const email = _email.replace('Daginn, ', '');
 	console.log(email);
 
-	User.updateOne({ email: email }, [
-		{
-			$set: {
-				'settings.fb': {
-					$switch: {
-						branches: [
-							{ case: { $eq: ['$settings.fb', true] }, then: false },
-							{ case: { $eq: ['$settings.fb', false] }, then: true },
-						],
-						default: true,
-					},
-				},
-			},
-		},
-	])
+	User.updateOne(
+		{ email: email },
+		[{ $set: { 'settings.fb': { $eq: [false, '$settings.fb'] } } }]
+		// .then((dbModel) => {
+		// 	res.json(dbModel);
+		// })
+		// .catch((err) => res.status(422).json(err))
+	)
 		.then((dbModel) => {
 			res.json(dbModel);
 		})

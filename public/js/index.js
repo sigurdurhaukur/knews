@@ -11,7 +11,7 @@ const searchcountry = async (searchBox) => {
 
 	if (searchBox.length === 0) {
 		fits = [];
-		countryList.innerHTML = '';
+		inputList.innerHTML = '';
 	}
 
 	outputHtml(fits);
@@ -29,7 +29,7 @@ const outputHtml = (fits) => {
 			)
 			.join('');
 
-		document.getElementById('countryList').innerHTML = html;
+		document.getElementById('inputList').innerHTML = html;
 	}
 };
 

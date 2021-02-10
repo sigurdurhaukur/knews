@@ -14,13 +14,17 @@ async function scrapeAll(browserInstance) {
 		let scrapedData = {};
 		// Call the scraper for different set of articles to be scraped
 
-		console.log('Cant stop me now!');
+		console.log("Can't stop me now!");
 
 		Object.assign(scrapedData, {
 			Innlent: {
 				fb: await fb.scraper(browser, 'Innlent'),
 				mbl: await mbl.scraper(browser, 'Innlent'),
 				man: await man.scraper(browser, 'Fréttir'),
+			},
+			Erlent: {
+				fb: await fb.scraper(browser, 'Erlent'),
+				mbl: await mbl.scraper(browser, 'Erlent'),
 			},
 		});
 		// scrapedData['Innlent'] = await fb.scraper(browser, 'Innlent');

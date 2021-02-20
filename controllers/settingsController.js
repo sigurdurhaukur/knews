@@ -2,6 +2,7 @@ const User = require('../models/User');
 
 // controller actions
 module.exports.menu_get = (req, res) => {
+	User.findOne({});
 	res.render('pages/menu', {
 		style: 'home',
 		title: 'hihihi',

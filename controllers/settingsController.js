@@ -16,16 +16,12 @@ module.exports.settings_mbl = (req, res) => {
 	const email = _email.replace('Daginn, ', '');
 	console.log(email);
 
-	User.updateOne(
-		{ email: email },
-		[{ $set: { 'settings.mbl': { $eq: [false, '$settings.mbl'] } } }]
-		// .then((dbModel) => {
-		// 	res.json(dbModel);
-		// })
-		// .catch((err) => res.status(422).json(err))
-	)
+	User.updateOne({ email: email }, [
+		{ $set: { 'settings.mbl': { $eq: [false, '$settings.mbl'] } } },
+	])
 		.then((dbModel) => {
 			res.json(dbModel);
+			res.redirect('menu');
 		})
 		.catch((err) => res.status(422).json(err));
 };
@@ -36,16 +32,28 @@ module.exports.settings_fb = (req, res) => {
 	const email = _email.replace('Daginn, ', '');
 	console.log(email);
 
-	User.updateOne(
-		{ email: email },
-		[{ $set: { 'settings.fb': { $eq: [false, '$settings.fb'] } } }]
-		// .then((dbModel) => {
-		// 	res.json(dbModel);
-		// })
-		// .catch((err) => res.status(422).json(err))
-	)
+	User.updateOne({ email: email }, [
+		{ $set: { 'settings.fb': { $eq: [false, '$settings.fb'] } } },
+	])
 		.then((dbModel) => {
 			res.json(dbModel);
+			res.redirect('menu');
+		})
+		.catch((err) => res.status(422).json(err));
+};
+
+module.exports.settings_visir = (req, res) => {
+	const _email = req.body.email;
+	const field = req.body.field;
+	const email = _email.replace('Daginn, ', '');
+	console.log(email);
+
+	User.updateOne({ email: email }, [
+		{ $set: { 'settings.visir': { $eq: [false, '$settings.visir'] } } },
+	])
+		.then((dbModel) => {
+			res.json(dbModel);
+			res.redirect('menu');
 		})
 		.catch((err) => res.status(422).json(err));
 };

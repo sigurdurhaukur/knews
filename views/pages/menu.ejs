@@ -13,7 +13,7 @@
 		<title>menu</title>
 
 		<style>
-			.fb, .mbl {
+			.fb, .mbl, .visir {
 				padding: 1em;
 				cursor: pointer;
 				margin: 2em;
@@ -25,26 +25,121 @@
 
 		<div class="wrapper">
 			<h1>menu</h1>
+			<p>your settings: <%= user.settings %> </p>
 
-			<button>toggle fb</button>
-			<div class="news man">
-				<img src="https://www.mannlif.is/wp-content/uploads/2020/06/mannlif-fav.png" alt="fretta mynd">
-				<div class="news_text">
-					<h2 class="news_h2">Man.is</h2>
-					<p class="news_p">Fréttastofa Mannlífs sérhæfir sig í beittum fréttaskýringum, við ræðum við áhugavert fólk, greinum frá fréttum sem skipta máli og stöndum vaktina í neytendamálum.
-					</p>
-					<div class="tag">
-						<p class="tag_p">Mælum með</p>
+			<% if (user.settings.fb) { %>
+				<div class="news fb true">
+					<img src="" alt="fretta mynd">
+					<div class="news_text">
+						<h2 class="news_h2">Fréttablaðið</h2>
+						<p class="news_p">hihih</p>
 					</div>
 				</div>
-			</div>
-			<div class="news fb">
-				<img src="" alt="fretta mynd">
-				<div class="news_text">
-					<h2 class="news_h2">Fréttablaðið</h2>
-					<p class="news_p">hihih</p>
+				<% } else{ %> 
+					<div class="news fb false">
+						<img src="" alt="fretta mynd">
+						<div class="news_text">
+							<h2 class="news_h2">Fréttablaðið</h2>
+							<p class="news_p">hihih</p>
+						</div>
+					</div>
+			<% } %>
+			<% if (user.settings.mbl) { %>
+				<div class="news mbl true">
+					<img src="" alt="fretta mynd">
+					<div class="news_text">
+						<h2 class="news_h2">Morgunblaðið</h2>
+						<p class="news_p">hihih</p>
+					</div>
 				</div>
-			</div>
+				<% } else{ %> 
+					<div class="news mbl false">
+						<img src="" alt="fretta mynd">
+						<div class="news_text">
+							<h2 class="news_h2">Morgunblaðið</h2>
+							<p class="news_p">hihih</p>
+						</div>
+					</div>
+			<% } %>
+			<% if (user.settings.man) { %>
+				<div class="news man true">
+					<img src="https://www.mannlif.is/wp-content/uploads/2020/06/mannlif-fav.png" alt="fretta mynd">
+					<div class="news_text">
+						<h2 class="news_h2">Man.is</h2>
+						<p class="news_p">Fréttastofa Mannlífs sérhæfir sig í beittum fréttaskýringum, við ræðum við áhugavert fólk, greinum frá fréttum sem skipta máli og stöndum vaktina í neytendamálum.
+						</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } else{ %> 
+					<div class="news man false">
+						<img src="https://www.mannlif.is/wp-content/uploads/2020/06/mannlif-fav.png" alt="fretta mynd">
+						<div class="news_text">
+							<h2 class="news_h2">Man.is</h2>
+							<p class="news_p">Fréttastofa Mannlífs sérhæfir sig í beittum fréttaskýringum, við ræðum við áhugavert fólk, greinum frá fréttum sem skipta máli og stöndum vaktina í neytendamálum.
+							</p>
+							<div class="tag">
+								<p class="tag_p">Mælum með</p>
+							</div>
+						</div>
+					</div>
+			<% } %>
+			<% if (user.settings.vb) { %>
+				<div class="news vb true">
+					<img src="" alt="fretta mynd">
+					<div class="news_text">
+						<h2 class="news_h2">Viðskiptablaðið</h2>
+						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } else{ %> 
+					<div class="news vb false">
+						<img src="" alt="fretta mynd">
+						<div class="news_text">
+							<h2 class="news_h2">Viðskiptablaðið</h2>
+							<p class="news_p">hihih</p>
+						</div>
+					</div>
+			<% } %>
+			<% if (user.settings.visir) { %>
+				<div class="news visir true">
+					<img src="" alt="fretta mynd">
+					<div class="news_text">
+						<h2 class="news_h2">Visir</h2>
+						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } else{ %> 
+					<div class="news visir false">
+						<img src="" alt="fretta mynd">
+						<div class="news_text">
+							<h2 class="news_h2">Visir</h2>
+							<p class="news_p">hihih</p>
+						</div>
+					</div>
+			<% } %>
+			<% if (user.settings.dv) { %>
+				<div class="news dv true">
+					<img src="" alt="fretta mynd">
+					<div class="news_text">
+						<h2 class="news_h2">DV</h2>
+						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } else{ %> 
+					<div class="news dv false">
+						<img src="" alt="fretta mynd">
+						<div class="news_text">
+							<h2 class="news_h2">DV</h2>
+							<p class="news_p">hihih</p>
+						</div>
+					</div>
+			<% } %>
+			<button>toggle fb</button>
+			
+			
 
 			<div class="news mbl">
 				<img src="" alt="fretta mynd">
@@ -58,9 +153,17 @@
 			const email = document.querySelector('a.email').innerText;
 			const fb = document.querySelector('.fb');
 			const mbl = document.querySelector('.mbl');
+			const visir = document.querySelector('.visir');
 
-			fb.addEventListener('click', post('/settings/fb'));
-			mbl.addEventListener('click', post('/settings/mbl'));
+			fb.addEventListener('click', function () {
+				post('/settings/fb');
+			});
+			mbl.addEventListener('click', function () {
+				post('/settings/mbl');
+			});
+			visir.addEventListener('click', function () {
+				post('/settings/visir');
+			});
 
 			function post(route) {
 				const data = { email: email};
@@ -68,12 +171,13 @@
 
 				fetch(route, {
 					method: 'POST',
+					url: route,
 					headers: {
 						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify(data),
 				})
-					.then((response) => {response.json(); console.log('Success:', response);})
+					.then((response) => {response.json(); console.log('Success:', response); window.location.replace('/menu'); })
 					.catch((error) => {
 						console.error('Error:', error);
 					});

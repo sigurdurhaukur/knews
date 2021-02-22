@@ -52,9 +52,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/articles/:news', (req, res) => {
-	const news = req.params;
-	console.log(news);
-	res.render('pages/index', {
+	// let news = req.params;
+	let news = 'news';
+	// console.log(news);
+	res.render(`pages/${news}`, {
 		style: 'home',
 		title: 'hihihi',
 		data: data,

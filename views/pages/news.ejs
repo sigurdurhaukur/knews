@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="/" target="_blank">
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/articles.css" />
+
+
+
+		<!-- font awesome -->
+		<script src="https://use.fontawesome.com/735d08bd89.js"></script>
+
+		<title>Home</title>
+	</head>
+	<body>
+		<%- include('../partials/header'); -%> <%- include('../partials/nav'); %>
+
+		<header>
+			<h1>ALLAR <b>ÞÍNAR</b> UPPÁHALDS FRÉTTIR Á EINUM STAÐ</h1>
+			<h2>k.</h2>
+			<div class="search-container">
+				<form action="/action_page.php">
+					<label for="search">
+						<input
+							id="search"
+							type="text"
+							placeholder="LEITAÐU EFTIR “VIÐSKIPTAFRÉTTIR”"
+							name="search"
+						/>
+					</label>
+					<button type="submit">Leita</button>
+					<div id="inputList"></div>
+				</form>
+			</div>
+			<div class="triangle-pos">
+				<div class="triangle-parent">
+					<div class="triangle"></div>
+				</div>
+			</div>
+			<!-- <img src="svg/triangle.svg" alt="Triangle" class="triangle"/> -->
+		</header>
+
+		<main class="wrapper">
+			<%- include('../partials/mini-nav'); %>
+
+			<div class="articles">
+                <% Object.keys(data.Innlent.fb).forEach(function(key) { %>
+                    <article class="article news">
+                        <img
+                            class="article__img"
+                            src="<%= data.Innlent.fb[key].imageUrl %>"
+                            alt="news img"
+                        />
+                        <img src="<%= data.Innlent.fb[key].icon %> " alt="" class="article__icon"/>
+                        <p class="article__p"><%= data.Innlent.fb[key].tag %></p>
+                        <h1 class="article__h1"><%= data.Innlent.fb[key].title %></h1>
+                        <div class="bottom">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </article>
+                <% }) %>
+		</main>
+
+		<script src="js/index.js"></script>
+	</body>
+</html>

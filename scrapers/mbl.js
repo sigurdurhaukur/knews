@@ -4,7 +4,7 @@ const scraperObject = {
 		let page = await browser.newPage();
 		console.log(`Navigating to ${this.url}...`);
 
-		await page.goto(this.url, { waitUntil: 'domcontentloaded' });
+		await page.goto(this.url, { waitUntil: 'load' });
 
 		let selectedCategory = await page.$$eval(
 			'.navbar > .container > ul > li > a',
@@ -25,6 +25,8 @@ const scraperObject = {
 		await page.goto(selectedCategory);
 
 		await page.waitForSelector('.smt');
+
+		await autoScroll(page);
 
 		const results = await page.$$eval('.smt', (articles) => {
 			return articles.map((article) => {
@@ -49,6 +51,25 @@ const scraperObject = {
 			});
 		});
 		return results;
+
+		async function autoScroll(page) {
+			await page.evaluate(async () => {
+				await new Promise((resolve, reject) => {
+					var totalHeight = 0;
+					var distance = 100;
+					var timer = setInterval(() => {
+						var scrollHeight = document.body.scrollHeight;
+						window.scrollBy(0, distance);
+						totalHeight += distance;
+
+						if (totalHeight >= scrollHeight) {
+							clearInterval(timer);
+							resolve();
+						}
+					}, 100);
+				});
+			});
+		}
 	},
 };
 

@@ -15,7 +15,16 @@
 		<style>
 			.fb,
 			.mbl,
-			.visir {
+			.visir,
+			.man,
+			.fotbolti,
+			.dv,
+			.klippa,
+			.kjarninn,
+			.ruv,
+			.stundin,
+			.kaktus,
+			.ron {
 				cursor: pointer;
 			}
 		</style>
@@ -24,7 +33,6 @@
 		<%- include('../partials/header'); -%>
 
 		<div class="wrapper">
-			
 			<h1>VELDU ÞÍNAR UPPÁHALDS FRÉTTAVEITUR & ÁHUGAMÁL</h1>
 			<div class="news-wrapper">
 				<% if (user.settings.fb) { %>
@@ -49,6 +57,9 @@
 					<div class="news_text">
 						<h2 class="news_h2">Morgunblaðið</h2>
 						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
 					</div>
 				</div>
 				<% } else{ %>
@@ -57,6 +68,9 @@
 					<div class="news_text">
 						<h2 class="news_h2">Morgunblaðið</h2>
 						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
 					</div>
 				</div>
 				<% } %> <% if (user.settings.man) { %>
@@ -103,7 +117,7 @@
 						<p class="news_p">hihih</p>
 					</div>
 				</div>
-				<% } else{ %>
+				<% } else { %>
 				<div class="news vb false">
 					<img src="" alt="fretta mynd" />
 					<div class="news_text">
@@ -119,7 +133,7 @@
 						<p class="news_p">hihih</p>
 					</div>
 				</div>
-				<% } else{ %>
+				<% } else { %>
 				<div class="news visir false">
 					<img src="" alt="fretta mynd" />
 					<div class="news_text">
@@ -135,12 +149,154 @@
 						<p class="news_p">hihih</p>
 					</div>
 				</div>
-				<% } else{ %>
+				<% } else { %>
 				<div class="news dv false">
 					<img src="" alt="fretta mynd" />
 					<div class="news_text">
 						<h2 class="news_h2">DV</h2>
 						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } %> <% if (user.settings.fotbolti) { %>
+				<div class="news fotbolti true">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Fotbolti</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="news fotbolti false">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Fotbolti</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } %> <% if (user.settings.klippa) { %>
+				<div class="news klippa true">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Klippa Tv</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="news klippa false">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Klippa Tv</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } %> <% if (user.settings.kjarninn) { %>
+				<div class="news kjarninn true">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Kjarninn</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="news kjarninn false">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Kjarninn</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } %> <% if (user.settings.ruv) { %>
+				<div class="news ruv true">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Ruv</h2>
+						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="news ruv false">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Ruv</h2>
+						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } %> <% if (user.settings.stundin) { %>
+				<div class="news stundin true">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Stundin</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="news stundin false">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Stundin</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } %> <% if (user.settings.kaktus) { %>
+				<div class="news kaktus true">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Kaktus</h2>
+						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="news kaktus false">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Kaktus</h2>
+						<p class="news_p">hihih</p>
+					</div>
+				</div>
+				<% } %> <% if (user.settings.ron) { %>
+				<div class="news ron true">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Ron Burgundi</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="news ron false">
+					<img src="" alt="fretta mynd" />
+					<div class="news_text">
+						<h2 class="news_h2">Ron Burgundi</h2>
+						<p class="news_p">hihih</p>
+						<div class="tag">
+							<p class="tag_p">Mælum með</p>
+						</div>
 					</div>
 				</div>
 				<% } %>

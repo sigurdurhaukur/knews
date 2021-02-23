@@ -38,7 +38,8 @@
 	border-right: none;
 }
 
-.user-nav li a {
+.user-nav li a,
+.menu {
 	display: block;
 	color: black;
 	text-align: center;
@@ -105,8 +106,8 @@
 
 .nav__li p {
 	position: relative;
-  left: 45px;
-  display: none;
+	left: 45px;
+	display: none;
 }
 
 /* Change the link color on hover */

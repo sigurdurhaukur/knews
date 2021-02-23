@@ -64,7 +64,22 @@
 								<p class="article__p"><%= data.Innlent.fb[key].tag %></p>
 								<h1 class="article__h1"><%= data.Innlent.fb[key].title %></h1>
 								<div class="bottom">
-									<i class="far fa-eye"></i>
+									<!-- <i class="far fa-eye"></i> -->
+								</div>
+							</article>
+						<% }) %>
+						<% Object.keys(data.Erlent.fb).forEach(function(key) { %>
+							<article class="article news">
+								<img
+									class="article__img"
+									src="<%= data.Erlent.fb[key].imageUrl %>"
+									alt="news img"
+								/>
+								<img src="<%= data.Erlent.fb[key].icon %> " alt="" class="article__icon"/>
+								<p class="article__p"><%= data.Erlent.fb[key].tag %></p>
+								<h1 class="article__h1"><%= data.Erlent.fb[key].title %></h1>
+								<div class="bottom">
+									<!-- <i class="far fa-eye"></i> -->
 								</div>
 							</article>
 						<% }) %>
@@ -81,10 +96,25 @@
 								<p class="article__p"><%= data.Innlent.mbl[key].tag %></p>
 								<h1 class="article__h1"><%= data.Innlent.mbl[key].title %></h1>
 								<div class="bottom">
-									<i class="far fa-eye"></i>
+									<!-- <i class="far fa-eye"></i> -->
 								</div>
 							</article>
-							<% }) %>
+						<% }) %>
+						<% Object.keys(data.Erlent.mbl).forEach(function(key) { %>
+							<article class="article news">
+								<img
+									class="article__img"
+									src="<%= data.Erlent.mbl[key].imageUrl %>"
+									alt="news img"
+								/>
+								<img src="<%= data.Erlent.mbl[key].icon %> " alt="" class="article__icon"/>
+								<p class="article__p"><%= data.Erlent.mbl[key].tag %></p>
+								<h1 class="article__h1"><%= data.Erlent.mbl[key].title %></h1>
+								<div class="bottom">
+									<!-- <i class="far fa-eye"></i> -->
+								</div>
+							</article>
+						<% }) %>
 					<% } %>				 
 				<% } else { %>
 					<% Object.keys(data.Innlent.fb).forEach(function(key) { %>

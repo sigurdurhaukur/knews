@@ -135,41 +135,6 @@
 					<% }) %>
 				<% } %>
 			</div>
-
-			<div class="articles">
-				<% for (var key in data) { %> <% if (data[key].tag === 'INNLENT') { %>
-				<div class="article local">
-					<h1 class="article__h1"><%= data[key].title %></h1>
-					<p class="article__p"><%= data[key].tag %></p>
-					<img
-						class="article__img"
-						src="<%= data[key].imageUrl %>"
-						alt="news img"
-					/>
-				</div>
-
-				<% } else if (data[key].tag === 'ERLENT') { %>
-				<div class="article global">
-					<h1 class="article__h1"><%= data[key].title %></h1>
-					<p class="article__p"><%= data[key].tag %></p>
-					<img
-						class="article__img"
-						src="<%= data[key].imageUrl %>"
-						alt="news img"
-					/>
-				</div>
-				<% } %>
-
-				<div class="article other">
-					<h1 class="article__h1"><%= data[key].title %></h1>
-					<img
-						class="article__img"
-						src="<%= data[key].imageUrl %>"
-						alt="news img"
-					/>
-				</div>
-				<% } %>
-			</div>
 		</main>
 
 		<script src="js/index.js"></script>

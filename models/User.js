@@ -22,6 +22,14 @@ const userSchema = new mongoose.Schema({
 		vb: { type: Boolean, default: false },
 		visir: { type: Boolean, default: false },
 		dv: { type: Boolean, default: false },
+		fotbolti: { type: Boolean, default: false },
+
+		klippa: { type: Boolean, default: false },
+		kjarninn: { type: Boolean, default: false },
+		ruv: { type: Boolean, default: false },
+		stundin: { type: Boolean, default: false },
+		kaktus: { type: Boolean, default: false },
+		ron: { type: Boolean, default: false },
 	},
 });
 

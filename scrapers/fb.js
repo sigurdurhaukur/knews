@@ -41,14 +41,40 @@ const scraperObject = {
 				properties.imageUrl = imageElement ? imageElement.src : '';
 				properties.icon =
 					'//frettabladid.overcastcdn.com/img/favicon-32x32.9cd52e1aea4a.png';
-				const date = new Date();
-				properties.date = date.getDate();
-				properties.hour = date.getHours();
-				properties.minute = date.getMinutes();
 
 				return properties;
 			});
 		});
+
+		// goes to the article and selects higher quality img and the actual text
+		for (i = 0; i < results.length; i++) {
+			await page.goto(results[i].url);
+			console.log(`Diving in to ${results[i].url}...`);
+
+			let img = await page.evaluate(
+				() => document.querySelector('picture img').src
+			);
+			let date = await page.evaluate(
+				() => document.querySelector('.article-pubdate').innerText
+			);
+			let time = await page.evaluate(
+				() => document.querySelector('.article-pubtime').innerText
+			);
+
+			await page.waitForSelector('.article-body');
+			let paragraph = await page.evaluate(() =>
+				[...document.querySelectorAll('.paragraph-block')]
+					.map((element) => element.innerText)
+					.join('\n')
+			);
+
+			results[i]._id = i;
+			results[i].imageUrl = img;
+			results[i].date = date;
+			results[i].time = time;
+			results[i].paragraph = paragraph;
+		}
+
 		return results;
 	},
 };

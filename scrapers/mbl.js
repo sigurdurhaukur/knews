@@ -50,6 +50,10 @@ const scraperObject = {
 				return properties;
 			});
 		});
+		// add aditional values to the results object
+		for (i = 0; i < results.length; i++) {
+			results[i]._id = i;
+		}
 		return results;
 
 		async function autoScroll(page) {

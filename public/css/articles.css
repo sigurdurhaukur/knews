@@ -21,6 +21,9 @@
 	box-shadow: 0px 2.71718px 2.71718px rgba(0, 0, 0, 0.25);
 }
 
+.article a {
+	text-decoration: none;
+}
 .article__img {
 	left: 0;
 	border-radius: 20.3789px 20.3789px 0 0;

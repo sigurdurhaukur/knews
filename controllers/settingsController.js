@@ -17,7 +17,11 @@ module.exports.settings_mbl = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.mbl': { $eq: [false, '$settings.mbl'] } } },
+		{
+			$set: {
+				'settings.service.mbl': { $eq: [false, '$settings.service.mbl'] },
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -33,7 +37,9 @@ module.exports.settings_fb = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.fb': { $eq: [false, '$settings.fb'] } } },
+		{
+			$set: { 'settings.service.fb': { $eq: [false, '$settings.service.fb'] } },
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -49,7 +55,11 @@ module.exports.settings_visir = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.visir': { $eq: [false, '$settings.visir'] } } },
+		{
+			$set: {
+				'settings.service.visir': { $eq: [false, '$settings.service.visir'] },
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -65,7 +75,11 @@ module.exports.settings_man = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.man': { $eq: [false, '$settings.man'] } } },
+		{
+			$set: {
+				'settings.service.man': { $eq: [false, '$settings.service.man'] },
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -81,7 +95,13 @@ module.exports.settings_fotbolti = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.fotbolti': { $eq: [false, '$settings.fotbolti'] } } },
+		{
+			$set: {
+				'settings.service.fotbolti': {
+					$eq: [false, '$settings.service.fotbolti'],
+				},
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -97,7 +117,9 @@ module.exports.settings_dv = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.dv': { $eq: [false, '$settings.dv'] } } },
+		{
+			$set: { 'settings.service.dv': { $eq: [false, '$settings.service.dv'] } },
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -113,7 +135,11 @@ module.exports.settings_klippa = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.klippa': { $eq: [false, '$settings.klippa'] } } },
+		{
+			$set: {
+				'settings.service.klippa': { $eq: [false, '$settings.service.klippa'] },
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -129,7 +155,13 @@ module.exports.settings_kjarninn = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.kjarninn': { $eq: [false, '$settings.kjarninn'] } } },
+		{
+			$set: {
+				'settings.service.kjarninn': {
+					$eq: [false, '$settings.service.kjarninn'],
+				},
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -145,7 +177,11 @@ module.exports.settings_ruv = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.ruv': { $eq: [false, '$settings.ruv'] } } },
+		{
+			$set: {
+				'settings.service.ruv': { $eq: [false, '$settings.service.ruv'] },
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -161,7 +197,13 @@ module.exports.settings_stundin = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.stundin': { $eq: [false, '$settings.stundin'] } } },
+		{
+			$set: {
+				'settings.service.stundin': {
+					$eq: [false, '$settings.service.stundin'],
+				},
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -177,7 +219,11 @@ module.exports.settings_kaktus = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.kaktus': { $eq: [false, '$settings.kaktus'] } } },
+		{
+			$set: {
+				'settings.service.kaktus': { $eq: [false, '$settings.service.kaktus'] },
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);
@@ -193,7 +239,11 @@ module.exports.settings_ron = (req, res) => {
 	console.log(email);
 
 	User.updateOne({ email: email }, [
-		{ $set: { 'settings.ron': { $eq: [false, '$settings.ron'] } } },
+		{
+			$set: {
+				'settings.service.ron': { $eq: [false, '$settings.service.ron'] },
+			},
+		},
 	])
 		.then((dbModel) => {
 			res.json(dbModel);

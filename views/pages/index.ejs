@@ -52,7 +52,7 @@
 
 			<div class="articles">
 				<% if (user) { %>
-					<% if (user.settings.fb) { %>
+					<% if (user.settings.service.fb) { %>
 						<% Object.keys(data.Innlent.fb).forEach(function(key) { %>
 							<article class="article news">
 								<a href="/article/<%= data.Innlent.fb[key]._id %> ">
@@ -90,7 +90,7 @@
 							</article>
 						<% }) %>
 					<% } %>	
-					<% if (user.settings.mbl) { %>
+					<% if (user.settings.service.mbl) { %>
 						<% Object.keys(data.Innlent.mbl).forEach(function(key) { %>
 							<article class="article news">
 								<a href="/article/<%= data.Innlent.mbl[key]._id %> ">

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/nav.css" />
+		<link rel="stylesheet" href="/css/index.css" />
+		<link rel="stylesheet" href="/css/articles.css" />
+
+        <base href="/">
+
+		<!-- font awesome -->
+		<script src="https://use.fontawesome.com/735d08bd89.js"></script>
+
+		<!-- favicon -->
+		<link rel="icon" 
+      type="image/png" 
+      href="https://www.kaktus.is/favicon-32x32.png?v=49bac9fabf3f67372a0ed343bee83d36g">
+		<title>🌵 | Knews</title>
+	</head>
+	<body>
+		<%- include('../partials/header'); -%> <%- include('../partials/nav'); %>
+
+		<main class="wrapper">
+            <img src="<%= data.imageUrl %> " alt="image">
+
+		<script src="js/index.js"></script>
+        <!-- <script>
+            let country = data.find(el => el.code === "AL");
+            // => {name: "Albania", code: "AL"}
+            console.log(country["name"]);
+        </script> -->
+	</body>
+</html>

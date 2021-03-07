@@ -36,3 +36,18 @@ const outputHtml = (fits) => {
 document
 	.getElementById('search')
 	.addEventListener('input', () => searchcountry(search.value));
+
+// calculate time since articles were posted.
+// let articleTime = document.querySelector('p.time').innerHTML;
+
+// const date = new Date();
+// date.getDay();
+
+// articleTime = articleTime.toString();
+// articleTime = articleTime.toLowerCase();
+
+// console.log(articleTime);
+
+const bookmark = document.querySelectorAll('.material-icons');
+
+bookmark.addEventListener('click', () => {});

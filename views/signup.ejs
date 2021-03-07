@@ -6,20 +6,20 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/nav.css" />
 		<link rel="stylesheet" href="css/users.css" />
-		<title>Sign up</title>
+		<title>Nýskráning</title>
 	</head>
 	<body>
 		<%- include('partials/header'); -%>
 		<div class="wrapper">
 			<form action="/signup">
-				<h2>Sign up</h2>
-				<label for="email">Email</label>
+				<h2>Nýskráning</h2>
+				<label for="email">Netfang:</label>
 				<input type="text" name="email" required />
 				<div class="email error"></div>
-				<label for="password">Password</label>
+				<label for="password">Lykilorð:</label>
 				<input type="password" name="password" required />
 				<div class="password error"></div>
-				<button>Sign up</button>
+				<button>Nýskráning</button>
 			</form>
 		</div>
 

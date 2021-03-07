@@ -10,8 +10,8 @@
 
 
 
-		<!-- font awesome -->
-		<script src="https://use.fontawesome.com/735d08bd89.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet">
 
 		<!-- favicon -->
 		<link rel="icon" 
@@ -48,11 +48,12 @@
 		</header>
 
 		<main class="wrapper">
-			<%- include('../partials/mini-nav'); %>
 
+			<%- include('../partials/mini-nav'); %>
+			<%= user.bookmarks.fb.id[1] %> 
 			<div class="articles">
 				<% if (user) { %>
-					<% if (user.settings.fb) { %>
+					<% if (user.settings.service.fb) { %>
 						<% Object.keys(data.Innlent.fb).forEach(function(key) { %>
 							<article class="article news">
 								<a href="/article/<%= data.Innlent.fb[key]._id %> ">
@@ -66,6 +67,14 @@
 									<h1 class="article__h1"><%= data.Innlent.fb[key].title %></h1>
 									<div class="bottom">
 										<!-- <i class="far fa-eye"></i> -->
+										<span id="time" data-fb-date="<%= data.Innlent.fb[key].date%>" data-fbtime="<%= data.Innlent.fb[key].time %>"></span>
+										<p class="time"><%= data.Innlent.fb[key].date%>, <%= data.Innlent.fb[key].time %></p>
+											<% if (data.Innlent.fb[key]._id === user.bookmarks.fb.id[1] || user.bookmarks.fb.id[2] || user.bookmarks.fb.id[3] || user.bookmarks.fb.id[4] || user.bookmarks.fb.id[5] || user.bookmarks.fb.id[6] || user.bookmarks.fb.id[7] || user.bookmarks.fb.id[8] || user.bookmarks.fb.id[9] || user.bookmarks.fb.id[10]) { %>
+												<span class="material-icons">bookmark</span>
+											<% } else { %>
+												<span class="material-icons">bookmark_border</span>	
+											<% } %>
+								
 									</div>
 								</a>
 							</article>
@@ -88,7 +97,7 @@
 							</article>
 						<% }) %>
 					<% } %>	
-					<% if (user.settings.mbl) { %>
+					<% if (user.settings.service.mbl) { %>
 						<% Object.keys(data.Innlent.mbl).forEach(function(key) { %>
 							<article class="article news">
 								<a href="/article/<%= data.Innlent.mbl[key]._id %> ">
@@ -138,7 +147,9 @@
 								<h1 class="article__h1"><%= data.Innlent.fb[key].title %></h1>
 								<div class="bottom">
 									<!-- <i class="far fa-eye"></i> -->
-									<p class="time"><%= data.Innlent.fb[key].date%>, <%= data.Innlent.fb[key].hour %>:<%= data.Innlent.fb[key].minute %>  </p>
+									<p class="time"><%= data.Innlent.fb[key].date%>, <%= data.Innlent.fb[key].time %></p>
+									<span class="material-icons">bookmark_border</span>	
+
 								</div>
 							</a>
 						</article>
@@ -148,5 +159,19 @@
 		</main>
 
 		<script src="js/index.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+		<script>
+			gsap.from(".article", {
+				// opacity: 0,
+				rotation:"-=2",
+				x: 4,
+				Y: 4,
+  				transformOrigin:"50% 50%",
+				stagger: 0.1 // 0.1 seconds between when each ".box" element starts animating
+			});
+
+
+
+		</script>
 	</body>
 </html>

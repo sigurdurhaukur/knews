@@ -51,16 +51,30 @@ app.get('/', (req, res) => {
 	});
 });
 
-app.get('/articles/:news', (req, res) => {
+app.get('/article/:id', (req, res) => {
 	// let news = req.params;
-	let news = 'news';
-	// console.log(news);
-	res.render(`pages/${news}`, {
+	let id = req.params;
+
+	// let filter = id;
+
+	// iterate over each element in the array
+	// for (i = 0; i < data.length; i++) {
+	// 	// look for the entry with a matching `code` value
+	// 	if (data[i]._id == filter) {
+	// 		const article = data[i];
+	// 		// obj[i].name is the matched result
+	// 	}
+	// }
+	// filter the articles to return one article with the desired id
+	// let article = data.find((el) => el._id === id);
+
+	res.render('pages/article', {
 		style: 'home',
 		title: 'hihihi',
 		data: data,
-		news: news,
+		id: id,
 	});
+	// console.log(news);
 });
 app.get('/sport', (req, res) => {
 	res.render('pages/sport', {

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://localhost/xmlschema"
+           xmlns="http://localhost/xmlschema"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xs1="http://www.w3.org/2001/XMLSchema">
+  <xs1:element name="LexicalResource"
+               type="xs:LexicalResourceType"
+               xmlns:xs="http://localhost/xmlschema"
+               xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+  <xs:attributeGroup name="feat_att">
+  <xs:attribute name="att">
+    <xs:simpleType>
+      <xs:annotation>
+        <xs:documentation>
+            partOfSpeech:
+                [adj:lýsingarorð
+                adv:atviksorð
+                conj:samtenging
+                forl:forliður
+                gr:greinir
+                inf:nafnháttarmerki
+                int:upphrópun
+                n:nafnorð
+                num:töluorð
+                prae:forsetning
+                pron:fornafn
+                skst:skammstöfun
+                v:sagnorð]
+          caseAssignment:
+                [nominative:nefnifall
+                accusative:þolfall
+                dative:þágufall
+                genative:eignarfall]
+          feature:
+                [accusative:þolfall
+                dative:þágufall
+                genative:eignarfall
+                feminine:kvenkyn
+                masculine:karlkyn
+                neutral:hvorugkyn
+                plural:fleirtala
+                middleVoice:miðmynd
+                pastParticiple:lýsingarháttur þátíðar
+                presentParticiple:lýsingarháttur nútíðar
+                comparetive:miðstig
+                superlative:efsta stig]
+          subject:
+                [nominative:nefnifall
+                accusative:þolfall
+                dative:þágufall
+                genative:eignarfall
+                það:það]
+          grammaticalGender:
+                [m:karlkyn
+                f:kvenkyn
+                n:hvorugkyn]
+        </xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="partOfSpeech"/>
+        <xs:enumeration value="writtenForm"/>
+        <xs:enumeration value="caseAssignment"/>
+        <xs:enumeration value="compounds"/>
+        <xs:enumeration value="features"/>
+        <xs:enumeration value="language"/>
+        <xs:enumeration value="reference"/>
+        <xs:enumeration value="subject"/>
+        <xs:enumeration value="languageCoding"/>
+        <xs:enumeration value="grammaticalGender"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+    <xs:attribute type="xs:string" name="val" use="required"/>
+  </xs:attributeGroup>
+  <xs:complexType name="featType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="feat_att"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="GlobalInformationType">
+    <xs:sequence>
+      <xs1:element type="xs:featType"
+                   name="feat"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LemmaType">
+    <xs:sequence>
+      <xs1:element type="xs:featType"
+                   name="feat"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WordFormType">
+    <xs:choice maxOccurs="2" minOccurs="2">
+      <xs1:element type="xs:featType"
+                   name="feat"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="SenseType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs1:element type="xs:featType"
+                   name="feat"
+                   minOccurs="0"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs:element type="xs:string"
+                  name="text"
+                  minOccurs="0"/>
+      <xs1:element type="xs:SenseType"
+                   name="Sense"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:SubjectFieldType"
+                   name="SubjectField"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:DefinitionType"
+                   name="Definition"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:SenseExampleType"
+                   name="SenseExample"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="SenseExampleType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs1:element type="xs:featType"
+                   name="feat"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs:element type="xs:string" name="text"/>
+      <xs1:element type="xs:SenseType"
+                   name="Sense"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:SenseExampleType"
+                   name="SenseExample"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="LexicalEntryType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs1:element type="xs:featType"
+                   name="feat"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:LemmaType"
+                   name="Lemma"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:WordFormType"
+                   name="WordForm"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:SenseType"
+                   name="Sense"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:SenseExampleType"
+                   name="SenseExample"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:choice>
+    <xs:attribute type="xs:string" name="id" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="LexiconType">
+    <xs:sequence>
+      <xs1:element type="xs:featType"
+                   name="feat" xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:LexicalEntryType"
+                   name="LexicalEntry"
+                   maxOccurs="unbounded"
+                   minOccurs="0"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LexicalResourceType">
+    <xs:sequence>
+      <xs1:element type="xs:GlobalInformationType"
+                   name="GlobalInformation"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+      <xs1:element type="xs:LexiconType"
+                   name="Lexicon"
+                   xmlns:xs="http://localhost/xmlschema"
+                   xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SubjectFieldType">
+    <xs:attribute type="xs:string" name="val" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="DefinitionType">
+    <xs:attribute type="xs:string" name="language" use="required"/>
+    <xs:attribute type="xs:string" name="text" use="required"/>
+  </xs:complexType>
+</xs:schema>

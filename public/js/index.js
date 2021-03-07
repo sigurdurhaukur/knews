@@ -47,3 +47,7 @@ document
 // articleTime = articleTime.toLowerCase();
 
 // console.log(articleTime);
+
+const bookmark = document.querySelectorAll('.material-icons');
+
+bookmark.addEventListener('click', () => {});

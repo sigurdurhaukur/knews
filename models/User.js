@@ -46,6 +46,14 @@ const userSchema = new mongoose.Schema({
 			realEstate: { type: Boolean, default: false },
 		},
 	},
+	bookmarks: {
+		fb: {
+			id: [Number],
+		},
+		mbl: {
+			id: [Number],
+		},
+	},
 });
 
 // fire a function before a doc saved to db

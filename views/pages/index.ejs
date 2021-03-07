@@ -10,8 +10,8 @@
 
 
 
-		<!-- font awesome -->
-		<script src="https://use.fontawesome.com/735d08bd89.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet">
 
 		<!-- favicon -->
 		<link rel="icon" 
@@ -48,8 +48,9 @@
 		</header>
 
 		<main class="wrapper">
-			<%- include('../partials/mini-nav'); %>
 
+			<%- include('../partials/mini-nav'); %>
+			<%= user.bookmarks.fb.id[1] %> 
 			<div class="articles">
 				<% if (user) { %>
 					<% if (user.settings.service.fb) { %>
@@ -68,6 +69,12 @@
 										<!-- <i class="far fa-eye"></i> -->
 										<span id="time" data-fb-date="<%= data.Innlent.fb[key].date%>" data-fbtime="<%= data.Innlent.fb[key].time %>"></span>
 										<p class="time"><%= data.Innlent.fb[key].date%>, <%= data.Innlent.fb[key].time %></p>
+											<% if (data.Innlent.fb[key]._id === user.bookmarks.fb.id[1] || user.bookmarks.fb.id[2] || user.bookmarks.fb.id[3] || user.bookmarks.fb.id[4] || user.bookmarks.fb.id[5] || user.bookmarks.fb.id[6] || user.bookmarks.fb.id[7] || user.bookmarks.fb.id[8] || user.bookmarks.fb.id[9] || user.bookmarks.fb.id[10]) { %>
+												<span class="material-icons">bookmark</span>
+											<% } else { %>
+												<span class="material-icons">bookmark_border</span>	
+											<% } %>
+								
 									</div>
 								</a>
 							</article>
@@ -141,6 +148,8 @@
 								<div class="bottom">
 									<!-- <i class="far fa-eye"></i> -->
 									<p class="time"><%= data.Innlent.fb[key].date%>, <%= data.Innlent.fb[key].time %></p>
+									<span class="material-icons">bookmark_border</span>	
+
 								</div>
 							</a>
 						</article>

@@ -44,8 +44,7 @@ const scraperObject = {
 
 				let date = new Date();
 				properties.date = date.getDate();
-				properties.hour = date.getHours();
-				properties.minute = date.getMinutes();
+				properties.hour = date.getHours() + '.' + date.getMinutes();
 
 				return properties;
 			});

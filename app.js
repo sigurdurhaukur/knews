@@ -8,8 +8,10 @@ dotenv.config();
 
 const data = require('./api/data.json');
 // const data = JSON.parse(_data);
+const indexRoutes = require('./routes/indexRoutes');
 const authRoutes = require('./routes/authRoutes');
 const settingsRoutes = require('./routes/settingsRoutes');
+const viewsRoutes = require('./routes/viewsRoutes');
 // const dataFrettir = require('./api/frettabladid-frettir.json');
 // const dataLifid = require('./api/frettabladid-lifid.json');
 // const dataSport = require('./api/frettabladid-sport.json');
@@ -87,4 +89,6 @@ app.get('/smoothies', requireAuth, (req, res) => res.send('smoothies'));
 app.get('/menu', requireAuth);
 
 app.use(authRoutes);
+// app.use(indexRoutes);
 app.use(settingsRoutes);
+app.use(viewsRoutes);

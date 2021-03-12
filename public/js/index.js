@@ -50,4 +50,79 @@ document
 
 const bookmark = document.querySelectorAll('.material-icons');
 
-bookmark.addEventListener('click', () => {});
+// bookmark.addEventListener('click', () => {});
+
+// const article = document.querySelector('article');
+// article.addEventListener('click', () => {
+// 	const data = { field: 2 };
+// 	console.log('article was clicked');
+
+// 	fetch('/views', {
+// 		method: 'POST',
+// 		url: '/views',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 		},
+// 		body: JSON.stringify(data),
+// 	})
+// 		.then((response) => {
+// 			response.json();
+// 			console.log('Success:', response);
+// 			window.location.replace('/');
+// 		})
+// 		.catch((error) => {
+// 			console.error('Error:', error);
+// 		});
+// });
+
+// const articles = document.querySelectorAll('.article');
+// articles.forEach((item) => {
+// 	item.addEventListener('click', (event) => {
+// 		const data = {
+// 			filter: 4,
+// 			object: 'data.Innlent.fb',
+// 		};
+// 		console.log('article was clicked');
+
+// 		fetch('/views', {
+// 			method: 'POST',
+// 			url: '/views',
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 			},
+// 			body: JSON.stringify(data),
+// 		})
+// 			.then((response) => {
+// 				response.json();
+// 				console.log('Success:', response);
+// 			})
+// 			.catch((error) => {
+// 				console.error('Error:', error);
+// 			});
+// 	});
+// });
+
+function views(filter, object) {
+	console.log('running hihihih');
+	const data = {
+		filter: parseInt(filter, 10),
+		object: object,
+	};
+	console.log('article was clicked');
+
+	fetch('/views', {
+		method: 'POST',
+		url: '/views',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	})
+		.then((response) => {
+			response.json();
+			console.log('Success:', response);
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
+}

@@ -193,6 +193,12 @@ if (str.includes(life)) {
 if (str.includes(realEstate)) {
 	console.log('realEstate');
 }
+if (str.includes(football)) {
+	console.log('football');
+}
+if (str.includes(onlineShopping)) {
+	console.log('onlineShopping');
+}
 // if none of the above criteria is met the article is a news article
 if (
 	str.includes(
@@ -205,7 +211,9 @@ if (
 			!profession &
 			!travel &
 			!life &
-			!realEstate
+			!realEstate &
+			!football &
+			!onlineShopping
 	)
 ) {
 	console.log('news');

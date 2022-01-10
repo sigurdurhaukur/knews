@@ -73,6 +73,7 @@ const scraperObject = {
 			results[i].date = date;
 			results[i].time = time;
 			results[i].paragraph = paragraph;
+			results[i].views = 0;
 		}
 
 		return results;
